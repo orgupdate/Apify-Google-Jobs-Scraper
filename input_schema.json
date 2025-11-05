@@ -45,7 +45,6 @@
       "type": "string",
       "description": "Select job type.",
       "enum": ["FULLTIME", "PARTTIME", "CONTRACTOR", "INTERN"],
-      "default": "",
       "editor": "select"
     },
     "datePosted": {
