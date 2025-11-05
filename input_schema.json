@@ -51,8 +51,8 @@
       "title": "Raw Filter - Posted in the last",
       "type": "string",
       "description": "Choose time range.",
-      "enum": ["today", "3days", "week", "month"],
-      "default": "month",
+      "enum": ["all", "today", "3days", "week", "month"],
+      "default": "all",
       "editor": "select"
     }
   },
