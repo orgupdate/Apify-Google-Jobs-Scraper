@@ -3,44 +3,6 @@
   "name": "OrgUpdate",
   "title": "OrgUpdate",
   "version": "1.0.0",
-  "output": {
-    "actorOutputSchemaVersion": 1,
-    "title": "Output schema of the files scraper",
-    "properties": {
-      "jobTitle": {
-        "title": "Job Title",
-        "type": "string",
-        "description": "The title of the job posting."
-      },
-      "companyName": {
-        "title": "Company Name",
-        "type": "string",
-        "description": "The name of the company."
-      },
-      "location": {
-        "title": "Job Location",
-        "type": "string",
-        "description": "The location of the job posting."
-      },
-      "postedDate": {
-        "title": "Posted Date",
-        "type": "string",
-        "description": "Date when the job was posted.",
-        "format": "date-time"
-      },
-      "jobUrl": {
-        "title": "Job URL",
-        "type": "string",
-        "description": "Direct link to the job listing.",
-        "format": "uri"
-      },
-      "description": {
-        "title": "Job Description",
-        "type": "string",
-        "description": "The full job description."
-      }
-    }
-  },
   "storages": {
     "dataset": {
       "actorSpecification": 1,
