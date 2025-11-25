@@ -6,6 +6,48 @@
   "storages": {
     "dataset": {
       "actorSpecification": 1,
+      "title": "Google Jobs Scraper Dataset",
+      "description": "Dataset containing job listings scraped from Google.",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "job_title": {
+            "type": "string",
+            "description": "The title of the job posting."
+          },
+          "company_name": {
+            "type": "string",
+            "description": "The name of the company."
+          },
+          "location": {
+            "type": "string",
+            "description": "The location of the job posting."
+          },
+          "date": {
+            "type": "string",
+            "description": "Date when the job was posted.",
+            "format": "date-time"
+          },
+          "URL": {
+            "type": "string",
+            "description": "Direct link to the job listing.",
+            "format": "uri"
+          },
+          "salary": {
+            "type": "string",
+            "description": "The salary range if provided."
+          },
+          "posted_via": {
+            "type": "string",
+            "description": "The platform the job was posted on."
+          }
+        },
+        "required": [
+          "job_title",
+          "company_name",
+          "URL"
+        ]
+      },
       "views": {
         "overview": {
           "title": "Overview",
