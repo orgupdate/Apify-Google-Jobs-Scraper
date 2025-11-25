@@ -31,7 +31,6 @@
         "title": "Posted Date",
         "type": "string",
         "description": "Date when the job was posted.",
-        "format": "date-time",
          "template": "{{links.apiDefaultDatasetUrl}}/items"
 
       },
@@ -39,7 +38,6 @@
         "title": "Job URL",
         "type": "string",
         "description": "Direct link to the job listing.",
-        "format": "uri",
          "template": "{{links.apiDefaultDatasetUrl}}/items"
 
 
