@@ -3,51 +3,59 @@
   "name": "OrgUpdate",
   "title": "OrgUpdate",
   "version": "1.0.0",
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Output schema of the google jobs scraper",
+    "properties": {
+      "jobTitle": {
+        "title": "Job Title",
+        "type": "string",
+        "description": "The title of the job posting.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+      },
+      "companyName": {
+        "title": "Company Name",
+        "type": "string",
+        "description": "The name of the company.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      },
+      "location": {
+        "title": "Job Location",
+        "type": "string",
+        "description": "The location of the job posting.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      },
+      "postedDate": {
+        "title": "Posted Date",
+        "type": "string",
+        "description": "Date when the job was posted.",
+        "format": "date-time",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      },
+      "jobUrl": {
+        "title": "Job URL",
+        "type": "string",
+        "description": "Direct link to the job listing.",
+        "format": "uri",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+
+      },
+      "description": {
+        "title": "Job Description",
+        "type": "string",
+        "description": "The full job description.",
+         "template": "{{links.apiDefaultDatasetUrl}}/items"
+
+      }
+    }
+  },
   "storages": {
     "dataset": {
       "actorSpecification": 1,
-      "title": "Google Jobs Scraper Dataset",
-      "description": "Dataset containing job listings scraped from Google.",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "job_title": {
-            "type": "string",
-            "description": "The title of the job posting."
-          },
-          "company_name": {
-            "type": "string",
-            "description": "The name of the company."
-          },
-          "location": {
-            "type": "string",
-            "description": "The location of the job posting."
-          },
-          "date": {
-            "type": "string",
-            "description": "Date when the job was posted.",
-            "format": "date-time"
-          },
-          "URL": {
-            "type": "string",
-            "description": "Direct link to the job listing.",
-            "format": "uri"
-          },
-          "salary": {
-            "type": "string",
-            "description": "The salary range if provided."
-          },
-          "posted_via": {
-            "type": "string",
-            "description": "The platform the job was posted on."
-          }
-        },
-        "required": [
-          "job_title",
-          "company_name",
-          "URL"
-        ]
-      },
       "views": {
         "overview": {
           "title": "Overview",
