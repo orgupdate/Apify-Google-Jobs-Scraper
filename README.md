@@ -72,6 +72,18 @@ The results are stored in the default Apify dataset. You can download them in JS
 - **salary:** Pay range (if provided by the employer).
 - **URL:** Direct link to the job application or listing.
 
+## How to Use
+
+1. **Deploy on Apify** – Run the actor directly from the Apify platform.
+2. **Schedule & Automate** – Set up periodic runs to keep your job database updated.
+3. **Export Data** – Integrate with your CRM, website, or analytics platform.
+
+## Why Use This Actor?
+
+- **No Coding Required** – Easy-to-use with minimal setup.
+- **Saves Time** – Automates job data collection.
+- **Customizable** – Supports tailored scraping configurations.
+
 ## 👨‍💻 Programmatic Usage
 
 You can run this actor via the Apify API using the official client libraries.
