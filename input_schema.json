@@ -14,9 +14,9 @@
     "targetLocations": {
       "title": "Target Cities (To Maximize Results)",
       "type": "array",
-      "description": "Enter specific cities to bypass Google's 30-job limit. Press Enter after each one.",
+      "description": "Enter specific cities for maximizing job search results (e.g., New York, Austin).",
       "editor": "stringList",
-      "prefill": ["New York, NY", "Austin, TX", "Seattle, WA", "Remote"]
+      "prefill": []
     },
     "companyName": {
       "title": "Company Name",
