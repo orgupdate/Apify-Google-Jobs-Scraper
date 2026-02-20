@@ -12,9 +12,9 @@
       "editor": "textfield"
     },
     "targetLocations": {
-      "title": "Target Cities (To Maximize Results)",
+      "title": "Target Cities",
       "type": "array",
-      "description": "Enter specific cities for maximizing job search results (e.g., New York, Austin).",
+      "description": "Enter specific cities for job search (e.g., New York, Austin).",
       "editor": "stringList",
       "prefill": []
     },
