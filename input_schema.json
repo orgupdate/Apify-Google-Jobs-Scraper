@@ -11,6 +11,13 @@
       "default": "",
       "editor": "textfield"
     },
+    "targetLocations": {
+      "title": "Target Cities (To Maximize Results)",
+      "type": "array",
+      "description": "Enter specific cities to bypass Google's 30-job limit. Press Enter after each one.",
+      "editor": "stringList",
+      "prefill": ["New York, NY", "Austin, TX", "Seattle, WA", "Remote"]
+    },
     "companyName": {
       "title": "Company Name",
       "type": "string",
