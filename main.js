@@ -1,28 +1,41 @@
-// main.js
 const { Actor } = require("apify");
 const { default: axios } = require("axios");
 
 Actor.main(async () => {
   try {
-    // 1. Get input from Apify task / API
     const input = await Actor.getInput();
-    console.log("Received input:", input);
+    const { userIsPaying } = Actor.getEnv();
+    const isFreeUser = !userIsPaying;
+    const FREE_LIMIT = 10;
 
-    // 2. Call your external API
-    const res = await axios.post("https://api.orgupdate.com/search-jobs-v1", {
-      ...input,
-      source: "google jobs",
-    });
+    const rawSearchTerm = `${input.includeKeyword || input.keyword || "all"}-${input.countryName || input.targetLocations?.[0] || "anywhere"}`;
+    const baseKey = rawSearchTerm.toLowerCase().replace(/[^a-z0-9-]/g, "_");
+    const cacheKey = isFreeUser ? `${baseKey}_free` : `${baseKey}_paid`;
 
-    const jobs = res.data;
+    const store = await Actor.openKeyValueStore();
+    const cachedData = await store.getValue(cacheKey);
 
-    // 3. Store results into Apify dataset
+    let jobs = [];
+
+    if (cachedData) {
+      jobs = cachedData;
+    } else {
+      const res = await axios.post("https://api.orgupdate.com/search-jobs-v1", {
+        ...input,
+        isFreeUser,
+        source: "google jobs",
+      });
+
+      jobs = res.data || [];
+      await store.setValue(cacheKey, jobs);
+    }
+
+    if (isFreeUser && jobs.length > FREE_LIMIT) {
+      jobs = jobs.slice(0, FREE_LIMIT);
+    }
+
     await Actor.pushData(jobs);
-
-    console.log(`✅ Saved ${jobs.length || 0} jobs to dataset`);
-    // Actor ends automatically when main() resolves
   } catch (err) {
-    console.error("❌ Job search failed:", err.message);
-    throw err; // Actor will be marked as FAILED in console
+    throw err;
   }
 });
