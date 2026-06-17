@@ -28,7 +28,7 @@ Actor.main(async () => {
 
       jobs = res.data || [];
       console.log("jobs here", jobs)
-      await store.setValue(cacheKey, jobs);
+      // await store.setValue(cacheKey, jobs);
     }
 
     if (isFreeUser && jobs.length > FREE_LIMIT) {
