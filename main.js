@@ -10,6 +10,14 @@ Actor.main(async () => {
 
     const rawSearchTerm = `${input.includeKeyword || input.keyword || "all"}-${input.countryName || input.targetLocations?.[0] || "anywhere"}`;
     const baseKey = rawSearchTerm.toLowerCase().replace(/[^a-z0-9-]/g, "_");
+    const rawSearchTerm = `${input.includeKeyword || input.keyword || "all"}-${input.countryName || input.targetLocations?.[0] || "anywhere"}`;
+    const baseKey = rawSearchTerm.toLowerCase().replace(/[^a-z0-9-]/g, "_");
+    const suffix = isFreeUser ? '_free' : '_paid';
+    const maxBaseLength = 256 - suffix.length;
+    const truncatedKey = baseKey.slice(0, maxBaseLength).replace(/_+$/, '');
+    const cacheKey = `${truncatedKey}${suffix}`;
+
+
     const cacheKey = isFreeUser ? `${baseKey}_free` : `${baseKey}_paid`;
 
     const store = await Actor.openKeyValueStore();
@@ -28,7 +36,7 @@ Actor.main(async () => {
 
       jobs = res.data || [];
       console.log("jobs here", jobs)
-      // await store.setValue(cacheKey, jobs);
+      await store.setValue(cacheKey, jobs);
     }
 
     if (isFreeUser && jobs.length > FREE_LIMIT) {
