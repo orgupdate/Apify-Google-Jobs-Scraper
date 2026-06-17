@@ -27,6 +27,7 @@ Actor.main(async () => {
       });
 
       jobs = res.data || [];
+      console.log("jobs here", jobs)
       await store.setValue(cacheKey, jobs);
     }
 
