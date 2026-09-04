@@ -24,7 +24,7 @@ Whether you are building a job board, running labour-market research, tracking a
 Add this Actor as a tool in Claude Code (free trial), Claude Cowork (free trial), Cursor, or any other MCP client, via the hosted Apify MCP server. Use this Actor-specific URL:
 
 ```
-https://mcp.apify.com/?tools=actors,docs,YOUR_USERNAME/google-jobs-scraper
+https://mcp.apify.com/?tools=actors,docs,orgupdate/google-jobs-scraper
 ```
 
  Setup walkthrough:
@@ -115,7 +115,7 @@ Not every Google Jobs listing includes every field – `salary`, `job_type` and 
 
 ## 👨‍💻 Programmatic Usage
 
-Run this Actor from the Apify API with the official clients. Replace `YOUR_USERNAME/google-jobs-scraper` with the real Actor ID from the Actor page.
+Run this Actor from the Apify API with the official clients. Replace `orgupdate/google-jobs-scraper` with the real Actor ID from the Actor page.
 
 ### Python
 
@@ -132,7 +132,7 @@ run_input = {
     "pagesToFetch": 1,
 }
 
-run = client.actor("YOUR_USERNAME/google-jobs-scraper").call(run_input=run_input)
+run = client.actor("orgupdate/google-jobs-scraper").call(run_input=run_input)
 
 for item in client.dataset(run["defaultDatasetId"]).iterate_items():
     print(item)
@@ -153,7 +153,7 @@ const input = {
     pagesToFetch: 2,
 };
 
-const run = await client.actor('YOUR_USERNAME/google-jobs-scraper').call(input);
+const run = await client.actor('orgupdate/google-jobs-scraper').call(input);
 const { items } = await client.dataset(run.defaultDatasetId).listItems();
 items.forEach((item) => console.dir(item));
 ```
