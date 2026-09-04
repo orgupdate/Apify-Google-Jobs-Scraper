@@ -34,8 +34,34 @@ const buildCacheKey = (input, isFreeUser) => {
   return `${truncated}${suffix}`;
 };
 
+// Only these fields are accepted from user input; anything else (e.g. an
+// attempt to override isFreeUser/maxResults/source or inject unexpected
+// properties into the upstream API payload) is dropped.
+const ALLOWED_INPUT_FIELDS = [
+  "countryName",
+  "targetLocations",
+  "companyName",
+  "locationName",
+  "includeKeyword",
+  "keyword",
+  "pagesToFetch",
+  "jobType",
+  "datePosted",
+];
+
+const sanitizeInput = (input) => {
+  const clean = {};
+  for (const field of ALLOWED_INPUT_FIELDS) {
+    if (input[field] !== undefined) {
+      clean[field] = input[field];
+    }
+  }
+  return clean;
+};
+
 Actor.main(async () => {
-  const input = (await Actor.getInput()) || {};
+  const rawInput = (await Actor.getInput()) || {};
+  const input = sanitizeInput(rawInput);
   const { userIsPaying } = Actor.getEnv();
   const isFreeUser = !userIsPaying;
   const limits = isFreeUser ? FREE_LIMITS : PAID_LIMITS;
