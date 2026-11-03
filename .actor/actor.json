@@ -5,49 +5,13 @@
   "version": "1.0.0",
   "output": {
     "actorOutputSchemaVersion": 1,
-    "title": "Output schema of the google jobs scraper",
+    "title": "Output schema of the Google Jobs Jobs Scraper",
+    "description": "Each item is one job listing: title, company, location, salary when listed, posting date, source and the direct job link.",
     "properties": {
-      "jobTitle": {
-        "title": "Job Title",
+      "jobs": {
+        "title": "Scraped Jobs",
         "type": "string",
-        "description": "The title of the job posting.",
-         "template": "{{links.apiDefaultDatasetUrl}}/items"
-      },
-      "companyName": {
-        "title": "Company Name",
-        "type": "string",
-        "description": "The name of the company.",
-         "template": "{{links.apiDefaultDatasetUrl}}/items"
-
-      },
-      "location": {
-        "title": "Job Location",
-        "type": "string",
-        "description": "The location of the job posting.",
-         "template": "{{links.apiDefaultDatasetUrl}}/items"
-
-      },
-      "postedDate": {
-        "title": "Posted Date",
-        "type": "string",
-        "description": "Date when the job was posted.",
-         "template": "{{links.apiDefaultDatasetUrl}}/items"
-
-      },
-      "jobUrl": {
-        "title": "Job URL",
-        "type": "string",
-        "description": "Direct link to the job listing.",
-         "template": "{{links.apiDefaultDatasetUrl}}/items"
-
-
-      },
-      "description": {
-        "title": "Job Description",
-        "type": "string",
-        "description": "The full job description.",
-         "template": "{{links.apiDefaultDatasetUrl}}/items"
-
+        "template": "{{links.apiDefaultDatasetUrl}}/items?view=overview"
       }
     }
   },
