@@ -5,8 +5,9 @@
   "version": "1.0.0",
   "output": {
     "actorOutputSchemaVersion": 1,
-    "title": "Output schema of the Google Jobs Jobs Scraper",
+    "title": "Output schema of the Google Jobs Scraper",
     "description": "Each item is one job listing: title, company, location, salary when listed, posting date, source and the direct job link.",
+    "type": "object",
     "properties": {
       "jobs": {
         "title": "Scraped Jobs",
